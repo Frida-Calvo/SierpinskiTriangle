@@ -33,27 +33,38 @@ public void draw()
 
 	translate(650,650);
 	rotate(PI);
+	// fill(setcolor(mouseX,mouseY,mouseX));
+	fill((int)Math.random()*100,(int)Math.random()*100, (int)Math.random()*100);
 	sierpinski(0,0,650);
 	rotate(-PI);
 	translate(-650,-650);
-	sierpinski(0,0,650/2);
+	sierpinski(10,0,650/2);
 	sierpinski(650/2,0,650/2);
 
 }
 public void mouseMoved()//optional
 {
 	setLimit(mouseX);
+	fill(((int)Math.random()*5)+200,((int)Math.random()*40)+160, ((int)Math.random()*50+170));
+	// mousePressed();
+	// setcolor(mouseX,mouseY,mouseX);
 }
+// public void mousePressed(){
+// 	setcolor( (int)Math.random()* 255, (int)Math.random()* 255,(int)Math.random()* 255);
+// }
 public void sierpinski(int x, int y, int len) 
 {
 	
-	stroke(135, 188, 132);
-	fill(135, 188, 132);
+	// stroke(135, 188, 132);
+	// fill(135, 188, 132);
+	fill(((int)Math.random()*5)+200,((int)Math.random()*40)+160, ((int)Math.random()*50+170));
 	if(len <= limit)
 		triangle(x, y, x+len/2, y-len/2, x+len, y);
 	else {
 		sierpinski(x,y,len/2);
+		fill(((int)Math.random()*5)+200,((int)Math.random()*40)+160, ((int)Math.random()*50+170));
 		sierpinski(x+len/2,y,len/2);
+		fill(((int)Math.random()*5)+200,((int)Math.random()*40)+160, ((int)Math.random()*50+170));
 		sierpinski(x+len/4,y+len/2,len/2);
 	}
 
@@ -61,4 +72,10 @@ public void sierpinski(int x, int y, int len)
 
 public void setLimit(int x){limit = x;}
 
-public void setcolor(int a, int b, int c){color d = color(a, b, c);}
+
+
+ public void setcolor(int a, int b, int c)
+ {
+ 	fill(a,b,c);
+ 	stroke(a,b,c);
+ }
